@@ -4,7 +4,7 @@
 - Choose CPS
 - Choose Mouse button
 - Choose Hot-Key
-- Auto Clfick...
+- Auto Click...
 ## Useful Features
 - Automatically varies each click randomly to simulate human clicks and bypass anti-cheats
 - Hot keys allow you to use to auto clicker even when the window is not in focus
