@@ -3,6 +3,7 @@ TOGGLE_KEY = 'f1'
 CLICKING = False
 
 import tkinter
+from tkinter import ttk
 import random
 import pynput.mouse, pynput.keyboard
 from time import sleep
@@ -45,7 +46,7 @@ def get_delays(CPS):
 
     return delays
 
-class Window:
+class AutoClicker:
 
     def __init__(self):
 
@@ -86,15 +87,15 @@ class Window:
         self.cps_entry.insert(0, '10')
         self.cps_entry.grid(column = 1, row = 0)
 
-
         self.mouse_btn_frame = tkinter.Frame(self.options_frame, bg = 'white')
         self.mouse_btn_frame.pack(pady = 15)
-        self.mouse_btn_label = tkinter.Label(self.mouse_btn_frame, text = f'MOUSE BUTTON: ', font = ('Arial', 14), bg = 'white', fg = 'black')
+        self.mouse_btn_label = tkinter.Label(self.mouse_btn_frame, text = f'Mouse Button: ', font = ('Arial', 14), bg = 'white', fg = 'black')
         self.mouse_btn_label.grid(column = 0, row = 0)
         self.mouse_btn = tkinter.StringVar(self.root)
-        self.mouse_btn_menu = tkinter.OptionMenu(self.mouse_btn_frame, self.mouse_btn, 'Left', 'Right', 'Middle')
+        self.mouse_btn_menu = ttk.Combobox(self.mouse_btn_frame, width = 10, textvariable = self.mouse_btn)
+        self.mouse_btn_menu['values'] = ('Left', 'Right', 'Middle')
+        self.mouse_btn_menu.current(0)
         self.mouse_btn_menu.configure(background = 'white', font = ('Arial', 12))
-        self.mouse_btn.set('Left')
         self.mouse_btn_menu.grid(column = 1, row = 0)
 
         self.toggle_key_frame = tkinter.Frame(self.options_frame, bg = 'white')
@@ -238,4 +239,4 @@ class Window:
 
             l.join()
 
-GUI = Window()
+AutoClicker()
